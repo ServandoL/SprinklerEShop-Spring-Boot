@@ -1,4 +1,4 @@
-package com.SprinklerEShop.shop.models;
+package com.SprinklerEShop.shop.models.products;
 
 import java.util.Objects;
 

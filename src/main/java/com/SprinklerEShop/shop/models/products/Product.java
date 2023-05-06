@@ -1,13 +1,16 @@
-package com.SprinklerEShop.shop.models;
+package com.SprinklerEShop.shop.models.products;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
+@Document("PRODUCTS")
 public class Product {
-    private ObjectId id;
+    @Id
+    private String id;
     private String productName;
     private double price;
     private String category;
@@ -59,6 +62,14 @@ public class Product {
         return Objects.hash(getId(), getProductName(), getPrice(), getCategory(), getBrand(), getStock(), getImageUrl(), getModifiedBy(), getModifiedDate(), getProductId(), getLastModifiedDate(), getDeletedBy(), getDeletedDate(), getRatings(), getModified());
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public ArrayList<Rating> getRatings() {
         return ratings;
     }
@@ -73,14 +84,6 @@ public class Product {
 
     public void setModified(ArrayList<ModifiedBy> modified) {
         this.modified = modified;
-    }
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
     }
 
     public String getProductName() {
